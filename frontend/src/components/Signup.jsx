@@ -3,6 +3,7 @@ import React from 'react'
 const Signup = () => {
   return (
     <div>
+        <h1>Signup</h1>
         <form>
   <div class="row mb-4">
     <div class="col">
@@ -56,7 +57,7 @@ const Signup = () => {
       <i class="fab fa-github"></i>
     </button>
   </div>
-</form>
+        </form>
     </div>
   )
 }

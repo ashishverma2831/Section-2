@@ -3,6 +3,7 @@ import React from 'react'
 const Login = () => {
   return (
     <div>
+        <h1>Login</h1>
         <form>
   <div data-mdb-input-init class="form-outline mb-4">
     <input type="email" id="form2Example1" class="form-control" />
@@ -48,7 +49,7 @@ const Login = () => {
       <i class="fab fa-github"></i>
     </button>
   </div>
-</form>
+        </form>
     </div>
   )
 }
