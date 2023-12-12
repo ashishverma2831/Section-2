@@ -6,6 +6,8 @@ import Signup from './components/Signup'
 import Contact from './components/Contact'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import Navbar from './components/Navbar'
+import NotFound from './components/NotFound'
+import EventHandling from './components/EventHandling'
 
 const App = () => {
   return (
@@ -24,6 +26,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/eventhandling" element={<EventHandling />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
