@@ -52,6 +52,11 @@ const Navbar = () => {
             State Management
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/card">
+            Card
+          </NavLink>
+        </li>
       </ul>
       <form className="d-flex" role="search">
         <input
