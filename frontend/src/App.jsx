@@ -8,6 +8,7 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import NotFound from './components/NotFound'
 import EventHandling from './components/EventHandling'
+import StateManagement from './components/StateManagement'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/eventhandling" element={<EventHandling />} />
+          <Route path="/state-management" element={<StateManagement />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
