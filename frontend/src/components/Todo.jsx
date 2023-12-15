@@ -7,9 +7,9 @@ const Todo = () => {
     const addNewTask = (e)=>{
         // console.log(e.code);
         if(e.code==='Enter'){
-            console.log(e.target.value);
+            // console.log(e.target.value);
             setTodolist([e.target.value,...todolist]);
-            console.log([e.target.value,...todolist]);
+            // console.log([e.target.value,...todolist]);
 
             e.target.value="";
         }

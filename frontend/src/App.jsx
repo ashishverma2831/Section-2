@@ -11,6 +11,7 @@ import EventHandling from './components/EventHandling'
 import StateManagement from './components/StateManagement'
 import Card from './components/Card'
 import Todo from './components/Todo'
+import ChatApplication from './components/ChatApplication'
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/state-management" element={<StateManagement />} />
           <Route path="/card" element={<Card />} />
           <Route path="/todo" element={<Todo />} />
+          <Route path="/chat-application" element={<ChatApplication />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
