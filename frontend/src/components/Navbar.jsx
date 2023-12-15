@@ -57,6 +57,11 @@ const Navbar = () => {
             Card
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/todo">
+            Todo
+          </NavLink>
+        </li>
       </ul>
       <form className="d-flex" role="search">
         <input

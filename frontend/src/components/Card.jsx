@@ -10,7 +10,7 @@ const Card = () => {
         <div className="card" style={{width: '18rem'}}>
             <div>
                 <div>
-                    <h5 className='p-2 pb-0 my-0'>Ashish Verma</h5>
+                    <h5 className='p-2 pb-0 my-0'>Ranbir kapoor</h5>
                     <p className='px-2 '>Mern Developer</p>
                 </div>
             </div>

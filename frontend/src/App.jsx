@@ -10,6 +10,7 @@ import NotFound from './components/NotFound'
 import EventHandling from './components/EventHandling'
 import StateManagement from './components/StateManagement'
 import Card from './components/Card'
+import Todo from './components/Todo'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/eventhandling" element={<EventHandling />} />
           <Route path="/state-management" element={<StateManagement />} />
           <Route path="/card" element={<Card />} />
+          <Route path="/todo" element={<Todo />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
