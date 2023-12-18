@@ -67,6 +67,11 @@ const Navbar = () => {
             Chat Application
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/browse-products">
+            Browse Products
+          </NavLink>
+        </li>
       </ul>
       <form className="d-flex" role="search">
         <input

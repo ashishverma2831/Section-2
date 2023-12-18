@@ -12,6 +12,7 @@ import StateManagement from './components/StateManagement'
 import Card from './components/Card'
 import Todo from './components/Todo'
 import ChatApplication from './components/ChatApplication'
+import BrowseProducts from './components/BrowseProducts'
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/card" element={<Card />} />
           <Route path="/todo" element={<Todo />} />
           <Route path="/chat-application" element={<ChatApplication />} />
+          <Route path="/browse-products" element={<BrowseProducts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
