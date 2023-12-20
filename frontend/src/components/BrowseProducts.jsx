@@ -25,6 +25,38 @@ const BrowseProducts = () => {
     }
 
 
+    const brands = ['HP','Lenevo','Asus','Apple','Dell','MSI','Samsung']
+    const [selBrands, setSelBrands] = useState([])
+    const selectBrand = (e,brand)=>{
+        console.log(e.target.checked);
+        if(selBrands.includes(brand)){
+            const filteredBrands = selBrands.filter((b)=>{return b!==brand});
+
+            if(filteredBrands.length===0){
+                setProductList(laptopData);
+            }
+            else{
+                const filteredData = laptopData.filter((laptop)=>{
+                    return filteredBrands.includes(laptop.brand);
+                })
+                setProductList(filteredData);
+            }
+            
+            setSelBrands(filteredBrands);
+            console.log(filteredBrands);
+        }
+        else{
+            const filteredBrands = [...selBrands,brand]
+
+            const filteredData = laptopData.filter((laptop)=>{
+                return filteredBrands.includes(laptop.brand);
+            })
+            setProductList(filteredData);
+
+            setSelBrands(filteredBrands)
+            console.log([...selBrands,brand])
+        }
+    }
 
  //searchRef.current.value = e.target.value
   return (
@@ -45,6 +77,16 @@ const BrowseProducts = () => {
                         <div className='card-body'>
                             <label>Max Price</label>
                             <input type='range' min={10000} max={200000} step={5000} className='form-range' onChange={filterPrice} />
+                            <hr className='my-3'/>
+                            <label>Select Brands</label>
+                            {
+                                brands.map((b)=>{
+                                    return <div>
+                                        <input type='checkbox' checked={selBrands.includes(b)} onChange={(e)=>{selectBrand(e,b)}}/>
+                                        <label>{b}</label>
+                                    </div>
+                                })
+                            }
                         </div>
                     </div>
                 </div>
