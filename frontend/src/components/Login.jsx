@@ -1,21 +1,34 @@
+import { useFormik } from 'formik'
 import React from 'react'
 
 const Login = () => {
+
+  const loginForm = useFormik({
+    initialValues:{
+      email:'',
+      password:''
+    },
+
+    onSubmit:(values)=>{
+      console.log(values);
+    }
+  })
+
   return (
     <div>
         <h1>Login</h1>
-        <form>
+        <form onSubmit={loginForm.handleSubmit}>
   <div data-mdb-input-init class="form-outline mb-4">
-    <input type="email" id="form2Example1" class="form-control" />
+    <input type="email" id="email" class="form-control" onChange={loginForm.handleChange} value={loginForm.values.email} />
     <label class="form-label" for="form2Example1">Email address</label>
   </div>
 
   <div data-mdb-input-init class="form-outline mb-4">
-    <input type="password" id="form2Example2" class="form-control" />
+    <input type="password" id="password" class="form-control" onChange={loginForm.handleChange} value={loginForm.values.password} />
     <label class="form-label" for="form2Example2">Password</label>
   </div>
 
-  <div class="row mb-4">
+  {/* <div class="row mb-4">
     <div class="col d-flex justify-content-center">
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
@@ -26,9 +39,9 @@ const Login = () => {
     <div class="col">
       <a href="#!">Forgot password?</a>
     </div>
-  </div>
+  </div> */}
 
-  <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+  <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
   <div class="text-center">
     <p>Not a member? <a href="#!">Register</a></p>
