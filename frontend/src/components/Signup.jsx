@@ -72,7 +72,7 @@ const Signup = () => {
     </label>
   </div> */}
 
-  <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+  <button type="submit" className="btn btn-primary btn-block mb-4">Sign up</button>
 
   <div class="text-center">
     <p>or sign up with:</p>
