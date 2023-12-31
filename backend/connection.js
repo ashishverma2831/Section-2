@@ -9,7 +9,7 @@ mongoose.connect(url)
     console.error(err);
 });
 
-// asynchronous me then catch ya asyn await
+// asynchronous me then catch ya async await
 
 
 
