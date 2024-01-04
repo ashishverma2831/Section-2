@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-// const Model = require('../models/userModel');
+const Model = require('../models/userModel');
 
 router.get('/add',(req,res)=>{
     res.send('add response from user router')
