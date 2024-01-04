@@ -1,9 +1,0 @@
-button{
-    padding: 20px;
-}
-
-.nav-item .active{
-    font-weight: bold;
-    border-bottom: 2px solid blueviolet;
-    color:blueviolet !important;
-}
