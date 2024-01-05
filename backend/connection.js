@@ -9,7 +9,10 @@ mongoose.connect(url)
     console.error(err);
 });
 
-// asynchronous me then catch ya async await
+module.exports = mongoose;
+
+// asynchronous me then catch 
+// ya async await
 
 
 
