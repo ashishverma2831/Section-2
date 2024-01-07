@@ -5,6 +5,7 @@ const express = require('express');
 const UserRouter = require('./router/userRouter') 
 const PostRouter = require('./router/postRouter')
 const ProductRouter = require('./router/productRouter')
+const OrderRouter = require('./router/orderRouter')
 
 //initialize express
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/user',UserRouter);
 app.use('/post',PostRouter);
 app.use('/product',ProductRouter);
+app.use('/order',OrderRouter);
 
 
 //starting the server
