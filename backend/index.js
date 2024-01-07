@@ -3,6 +3,8 @@ const express = require('express');
 
 //user router
 const UserRouter = require('./router/userRouter') 
+const PostRouter = require('./router/postRouter')
+const ProductRouter = require('./router/productRouter')
 
 //initialize express
 const app = express();
@@ -12,6 +14,8 @@ const port = 5000;
 // middlewares
 app.use(express.json());
 app.use('/user',UserRouter);
+app.use('/post',PostRouter);
+app.use('/product',ProductRouter);
 
 
 //starting the server
