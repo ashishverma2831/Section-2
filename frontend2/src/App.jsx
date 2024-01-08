@@ -13,10 +13,12 @@ import Card from './components/Card'
 import Todo from './components/Todo'
 import ChatApplication from './components/ChatApplication'
 import BrowseProducts from './components/BrowseProducts'
+import { SnackbarProvider } from 'notistack'
 
 const App = () => {
   return (
-    <div>
+    <>
+    <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical:'top', horizontal:'right' }}>
       <BrowserRouter>
 
         {/* <Link to="/">Home</Link>
@@ -40,7 +42,8 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </div>
+      </SnackbarProvider>
+    </>
   )
 }
 

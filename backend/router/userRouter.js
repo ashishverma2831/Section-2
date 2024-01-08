@@ -7,7 +7,9 @@ router.post('/add',(req,res)=>{
     // const {name,email,password} = req.body
     new Model(req.body).save()
     .then((result) => {
-        res.json(result)
+        setTimeout(() => {
+            res.json(result)
+        }, 2000);
     }).catch((err) => {
         console.error(err);
         res.status(500).json(err)

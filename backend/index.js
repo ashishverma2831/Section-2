@@ -1,5 +1,6 @@
 //req s likhlo isko
 const express = require('express');
+const cors = require('cors');
 
 //user router
 const UserRouter = require('./router/userRouter') 
@@ -14,6 +15,9 @@ const port = 5000;
 
 // middlewares
 app.use(express.json());
+app.use(cors({
+    origin: 'http://localhost:5173'
+}));
 app.use('/user',UserRouter);
 app.use('/post',PostRouter);
 app.use('/product',ProductRouter);

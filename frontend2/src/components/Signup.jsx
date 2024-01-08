@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
 import {useFormik} from 'formik'
 import * as Yup from 'yup';
+import { enqueueSnackbar } from 'notistack';
+import { useNavigate } from 'react-router-dom';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string().required('Name is required').min(4,'Name is too short'),
   email: Yup.string().email('Invalid email').required('Required'),
-  password:Yup.string().required('Password is required').min(8,'Password is too short')
-  .matches(/[a-zA-Z]\d/, 'password must include uppercase and lowercase letter'),
+  password:Yup.string().required('Password is required').min(8,'Password is too short'),
+  // .matches(/[a-zA-Z]\d/, 'password must include uppercase and lowercase letter'),
   confirm:Yup.string().oneOf([Yup.ref('password'),null], 'Password must match').required('confirm password is required')
 });
 
 const Signup = () => {
   
   const [passwordHidden, setPasswordHidden] = useState('password')
+  const navigate = useNavigate();
+
 
   const signupForm = useFormik({
     initialValues:{
@@ -21,8 +25,38 @@ const Signup = () => {
       password:'',
       confirm:''
     },
-    onSubmit:(values)=>{
+    onSubmit:async (values,{setSubmitting,resetForm})=>{
       console.log(values);
+      // 1 data
+      // url
+      // method
+      // json object
+
+      
+      // for alerts
+      //sweetalert
+      //hot-toast
+      //notistack
+      setSubmitting(true);
+      const res = await fetch('http://localhost:5000/user/add',{
+        method:'POST',
+        body:JSON.stringify(values),
+        headers:{
+          'Content-Type':'application/json'
+        }
+      });
+      console.log(res.status);
+      setSubmitting(false);
+      
+      if(res.status===200){
+        enqueueSnackbar('Register Successfully', {variant:'success'})
+        resetForm();
+        navigate('/login');
+      }
+      else{
+        enqueueSnackbar('Something went Wrong', {variant:'error'})
+      }
+
     },
     validationSchema:SignupSchema
   })
@@ -63,7 +97,7 @@ const Signup = () => {
     <input type={passwordHidden?'password':'text'} id="confirm" onChange={signupForm.handleChange} value={signupForm.values.confirm} class="form-control" />
     <label class="form-label" for="form3Example4">Confirm Password</label>
     <span className='ms-4 fs-6 text-danger'>{signupForm.touched.confirm && signupForm.errors.confirm}</span>
-    <button type='button' onClick={()=>{setPasswordHidden(!passwordHidden)}}>{passwordHidden?'Show':'Hide'}</button>
+    {/* <button type='button' onClick={()=>{setPasswordHidden(!passwordHidden)}}>{passwordHidden?'Show':'Hide'}</button> */}
   </div>
   {/* <div class="form-check d-flex justify-content-center mb-4">
     <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
@@ -72,9 +106,9 @@ const Signup = () => {
     </label>
   </div> */}
 
-  <button type="submit" className="btn btn-primary btn-block mb-4">Sign up</button>
+  <button type="submit" className="btn btn-primary btn-block mb-4" disabled={signupForm.setSubmitting}>Sign up</button>
 
-  <div class="text-center">
+  {/* <div class="text-center">
     <p>or sign up with:</p>
     <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
       <i class="fab fa-facebook-f"></i>
@@ -91,7 +125,7 @@ const Signup = () => {
     <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
       <i class="fab fa-github"></i>
     </button>
-  </div>
+  </div> */}
         </form>
     </div>
   )
