@@ -2,7 +2,7 @@ const { model } = require("mongoose");
 const { Schema } = require("mongoose");
 
 const myPost = new Schema({
-    sender:String,
+    sendername:String,
     content:String,
     image:String,
     like:Number,

@@ -14,6 +14,7 @@ import Todo from './components/Todo'
 import ChatApplication from './components/ChatApplication'
 import BrowseProducts from './components/BrowseProducts'
 import { SnackbarProvider } from 'notistack'
+import Post from './components/Post'
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/todo" element={<Todo />} />
           <Route path="/chat-application" element={<ChatApplication />} />
           <Route path="/browse-products" element={<BrowseProducts />} />
+          <Route path="/post" element={<Post />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
