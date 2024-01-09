@@ -1,21 +1,23 @@
 import { useFormik } from 'formik'
 import { enqueueSnackbar } from 'notistack';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
+  const navigate = useNavigate();
   const loginForm = useFormik({
     initialValues:{
       email:'',
       password:''
     },
-
+  
     onSubmit: async (values)=>{
 
       console.log(values);
 
 
-      const res = await fetch('http://localhost/user/authenticate',{
+      const res = await fetch('http://localhost:5000/user/authenticate',{
         method:"POST",
         body:JSON.stringify(values),
         headers:{
@@ -25,9 +27,10 @@ const Login = () => {
 
       if(res.status===200){
         enqueueSnackbar('Login in successfully',{ variant:'success'})
+        navigate('/');
       }
       else if(res.status===401){
-        enqueueSnackbar('Invalid Credentials',{ variant:'success'})
+        enqueueSnackbar('Invalid Credentials',{ variant:'error'})
       }
       else{
         enqueueSnackbar("Error Occured! Try again later.",{variant:'error'});
