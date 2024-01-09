@@ -1,4 +1,5 @@
 import { useFormik } from 'formik'
+import { enqueueSnackbar } from 'notistack';
 import React from 'react'
 
 const Login = () => {
@@ -9,8 +10,28 @@ const Login = () => {
       password:''
     },
 
-    onSubmit:(values)=>{
+    onSubmit: async (values)=>{
+
       console.log(values);
+
+
+      const res = await fetch('http://localhost/user/authenticate',{
+        method:"POST",
+        body:JSON.stringify(values),
+        headers:{
+          'Content-Type':'application/json'
+        }
+      });
+
+      if(res.status===200){
+        enqueueSnackbar('Login in successfully',{ variant:'success'})
+      }
+      else if(res.status===401){
+        enqueueSnackbar('Invalid Credentials',{ variant:'success'})
+      }
+      else{
+        enqueueSnackbar("Error Occured! Try again later.",{variant:'error'});
+      }
     }
   })
 
