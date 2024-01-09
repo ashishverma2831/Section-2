@@ -84,6 +84,21 @@ router.delete('/delete/:id',(req,res)=>{
         res.status(500).json(err)
     });
 })
+
+
+
+router.post('/authenticate',(req,res)=>{
+    Model.findOne(req.body)
+    .then((result) => {
+        if(result)
+            res.json(result);
+        else 
+            res.status(401).json({message:'Invalid Credentials'});
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err)
+    });
+})
 //getAll
 //getbyid
 //update

@@ -43,7 +43,7 @@ const Login = () => {
 
   <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
-  <div class="text-center">
+  {/* <div class="text-center">
     <p>Not a member? <a href="#!">Register</a></p>
     <p>or sign up with:</p>
     <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
@@ -61,7 +61,7 @@ const Login = () => {
     <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
       <i class="fab fa-github"></i>
     </button>
-  </div>
+  </div> */}
         </form>
     </div>
   )

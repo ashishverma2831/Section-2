@@ -5,8 +5,14 @@ const myPost = new Schema({
     sendername:String,
     content:String,
     image:String,
-    like:Number,
-    comment:String,
+    like:{
+        type:Number,
+        default:1
+    },
+    comment:{
+        type:String,
+        default:"0"
+    },
     share:String
 })
 
