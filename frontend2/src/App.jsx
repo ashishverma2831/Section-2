@@ -16,6 +16,7 @@ import BrowseProducts from './components/BrowseProducts'
 import { SnackbarProvider } from 'notistack'
 import Post from './components/Post'
 import ManageUser from './components/ManageUser'
+import UpdateUser from './components/UpdateUser'
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/browse-products" element={<BrowseProducts />} />
           <Route path="/post" element={<Post />} />
           <Route path="/manageuser" element={<ManageUser />} />
+          <Route path="/updateuser/:id" element={<UpdateUser />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
