@@ -27,6 +27,10 @@ const Login = () => {
 
       if(res.status===200){
         enqueueSnackbar('Login in successfully',{ variant:'success'})
+
+        const data = await res.json();
+        sessionStorage.setItem('user',JSON.stringify(data))
+
         navigate('/');
       }
       else if(res.status===401){
