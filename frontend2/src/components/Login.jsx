@@ -2,9 +2,11 @@ import { useFormik } from 'formik'
 import { enqueueSnackbar } from 'notistack';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import useAppContext from '../AppContext'
 
 const Login = () => {
 
+  const {currentUser,setCurrentUser,loggedIn,setLoggedIn,logout} = useAppContext();
   const navigate = useNavigate();
   const loginForm = useFormik({
     initialValues:{
@@ -15,8 +17,6 @@ const Login = () => {
     onSubmit: async (values)=>{
 
       console.log(values);
-
-
       const res = await fetch('http://localhost:5000/user/authenticate',{
         method:"POST",
         body:JSON.stringify(values),
@@ -28,9 +28,11 @@ const Login = () => {
       if(res.status===200){
         enqueueSnackbar('Login in successfully',{ variant:'success'})
 
+        //session storage
         const data = await res.json();
+        // data including ids
         sessionStorage.setItem('user',JSON.stringify(data))
-
+        setLoggedIn(true);
         navigate('/');
       }
       else if(res.status===401){

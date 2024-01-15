@@ -17,13 +17,14 @@ import { SnackbarProvider } from 'notistack'
 import Post from './components/Post'
 import ManageUser from './components/ManageUser'
 import UpdateUser from './components/UpdateUser'
+import { AppProvider } from './AppContext'
 
 const App = () => {
   return (
     <>
     <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical:'top', horizontal:'right' }}>
       <BrowserRouter>
-
+        <AppProvider>
         {/* <Link to="/">Home</Link>
         <Link to="/login">Login</Link>
         <Link to="/signup">Signup</Link> */}
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/updateuser/:id" element={<UpdateUser />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </AppProvider>
       </BrowserRouter>
       </SnackbarProvider>
     </>
